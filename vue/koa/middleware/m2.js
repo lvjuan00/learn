@@ -1,0 +1,11 @@
+function m2(ctx){
+  global.console.log('22',ctx.path)
+} 
+module.exports=function(){
+  return async function(ctx,next){
+    global.console.log('m2 start')
+    m2(ctx)
+    await next()
+    global.console.log('m2 end')
+  }
+}
